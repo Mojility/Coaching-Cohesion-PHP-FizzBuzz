@@ -1,0 +1,24 @@
+digraph {
+
+	Matcher[label="Matcher (0)",fillcolor="yellow",style="filled",shape="rect"];
+	WordMatcher[label="WordMatcher (0.5)",fillcolor="white",style="filled",shape="ellipse"];
+
+	WordMatcher -> Matcher
+
+	Formatter[label="Formatter (0)",fillcolor="yellow",style="filled",shape="rect"];
+	LineFormatter[label="LineFormatter (0.5)",fillcolor="white",style="filled",shape="ellipse"];
+
+	LineFormatter -> Formatter
+
+	FizzBuzz[label="FizzBuzz (0.66)",fillcolor="yellow",style="filled",shape="ellipse"];
+
+	FizzBuzz -> Matcher;
+	FizzBuzz -> Formatter;
+
+	FizzBuzzFactory[label="FizzBuzzFactory (1)",fillcolor="white",style="filled",shape="ellipse"];
+
+	FizzBuzzFactory -> FizzBuzz;
+	FizzBuzzFactory -> LineFormatter;
+	FizzBuzzFactory -> WordMatcher;
+
+}
