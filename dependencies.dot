@@ -7,8 +7,10 @@ digraph {
 
 	Formatter[label="Formatter (0)",fillcolor="yellow",style="filled",shape="rect"];
 	LineFormatter[label="LineFormatter (0.5)",fillcolor="white",style="filled",shape="ellipse"];
+	HtmlFormatter[label="HtmlFormatter (0.5)",fillcolor="white",style="filled",shape="ellipse"];
 
 	LineFormatter -> Formatter
+	HtmlFormatter -> Formatter
 
 	FizzBuzz[label="FizzBuzz (0.66)",fillcolor="yellow",style="filled",shape="ellipse"];
 
@@ -19,6 +21,7 @@ digraph {
 
 	FizzBuzzFactory -> FizzBuzz;
 	FizzBuzzFactory -> LineFormatter;
+	FizzBuzzFactory -> HtmlFormatter;
 	FizzBuzzFactory -> WordMatcher;
 
 }
