@@ -1,0 +1,7 @@
+DEPENDENCIES
+  CookbookPHPKata
+    git: git://github.com/Mojility/Cookbook-PHP-Kata
+    revision: 4801b5cb37d9695a2bae725b1dde37a3fa64b058
+
+GRAPH
+  CookbookPHPKata (0.9.0)

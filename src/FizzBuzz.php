@@ -1,19 +1,19 @@
 <?php
 
-include_once('./Formatter.php');
-include_once('./Matcher.php');
-include_once('./FizzBuzzFactory.php');
+include_once('src/Formatter.php');
+include_once('src/Matcher.php');
+include_once('src/FizzBuzzFactory.php');
 
 class FizzBuzz {
 
     private $wordMatchers = array();
     private $formatter;
 
-    function __construct($formatter) {
+    function __construct(Formatter $formatter) {
         $this->formatter = $formatter;
     }
 
-    function addMatcher($matcher) {
+    function addMatcher(Matcher $matcher) {
         array_push($this->wordMatchers, $matcher);
     }
 
@@ -53,7 +53,7 @@ class FizzBuzz {
     }
 
     function selectAppropriateMatchers($input) {
-        return array_filter($this->wordMatchers, function ($matcher) use ($input) {
+        return array_filter($this->wordMatchers, function (Matcher $matcher) use ($input) {
             return $matcher->matches($input);
         });
     }
@@ -63,7 +63,7 @@ class FizzBuzz {
     }
 
     function translateWordsForMatchers($input) {
-        return array_map(function ($matcher) {
+        return array_map(function (Matcher $matcher) {
             return $matcher->result();
         }, $this->selectAppropriateMatchers($input));
     }

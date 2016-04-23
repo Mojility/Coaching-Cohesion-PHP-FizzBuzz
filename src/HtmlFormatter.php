@@ -1,6 +1,6 @@
 <?php
 
-include_once('./Formatter.php');
+include_once('src/Formatter.php');
 
 class HtmlFormatter implements Formatter {
     private $title;

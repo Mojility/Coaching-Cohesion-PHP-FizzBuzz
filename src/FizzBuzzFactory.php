@@ -1,14 +1,14 @@
 <?php
 
 
-include_once('./Matcher.php');
-include_once('./WordMatcher.php');
+include_once('src/Matcher.php');
+include_once('src/WordMatcher.php');
 
-include_once('./Formatter.php');
-include_once('./LineFormatter.php');
-include_once('./HtmlFormatter.php');
+include_once('src/Formatter.php');
+include_once('src/LineFormatter.php');
+include_once('src/HtmlFormatter.php');
 
-include_once('./FizzBuzz.php');
+include_once('src/FizzBuzz.php');
 
 class FizzBuzzFactory {
     static function addStandardMatchers($fb) {

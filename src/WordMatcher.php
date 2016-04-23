@@ -1,6 +1,6 @@
 <?php
 
-include_once('./Matcher.php');
+include_once('src/Matcher.php');
 
 class WordMatcher implements Matcher {
     private $modulus, $word;

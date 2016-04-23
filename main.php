@@ -1,5 +1,4 @@
 <?php
-
-require_once('./FizzBuzzFactory.php');
+require_once('src/FizzBuzzFactory.php');
 
 FizzBuzzFactory::commandLineFizzBuzz()->run();
