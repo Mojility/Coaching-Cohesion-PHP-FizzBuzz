@@ -2,19 +2,19 @@
 
 require_once('src/LineFormatter.php');
 
-class LineFormatterTest extends PHPUnit_Framework_TestCase {
+class LineFormatterTest extends FormatterCheckingTestCase {
 
     function testBasicFormatting() {
         $title = "Sample";
-        $input = "3";
         $separator = " : ";
+        $input = "3";
         $result = "Hello";
 
-        $formatter = new LineFormatter($title, $input, $separator);
-        $line = $formatter->format($input, $result);
+        $formatter = new LineFormatter($title, 3, $separator);
 
-        $this->assertContains($title, $formatter->header());
-        $this->assertContains($input, $line);
+        $this->checkHeaderContainsTitle($formatter, $title);
+        $this->checkFormattedEntryContainsInputAndResult($formatter, $input, $result);
+        $this->assertContains($separator, $formatter->format($input, $result));
     }
 
 }
