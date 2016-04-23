@@ -8,22 +8,24 @@ class FizzBuzz {
 
     private $wordMatchers = array();
     private $formatter;
+    private $writer;
 
-    function __construct(Formatter $formatter) {
+    public function __construct(Formatter $formatter, OutputWriter $writer) {
         $this->formatter = $formatter;
+        $this->writer = $writer;
     }
 
-    function addMatcher(Matcher $matcher) {
+    public function addMatcher(Matcher $matcher) {
         array_push($this->wordMatchers, $matcher);
     }
 
-    function run($start = 1, $end = 25) {
+    public function run($start = 1, $end = 25) {
         $this->displayHeader();
         $this->loopOver($start, $end);
         $this->displayFooter();
     }
 
-    function loopOver($start, $end) {
+    private function loopOver($start, $end) {
         array_map(
             function ($input) {
                 $this->displayOutput($input);
@@ -33,15 +35,15 @@ class FizzBuzz {
     }
 
     function displayHeader() {
-        echo $this->formatter->header();
+        $this->writer->writeln($this->formatter->header());
     }
 
     function displayOutput($input) {
-        echo $this->formatter->format($input, $this->calculateOutput($input));
+        $this->writer->writeln($this->formatter->format($input, $this->calculateOutput($input)));
     }
 
     function displayFooter() {
-        echo $this->formatter->footer();
+        $this->writer->writeln($this->formatter->footer());
     }
 
     function calculateOutput($input) {
